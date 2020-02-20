@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Mailing Lists</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Mailing Lists</h1>
+
+<a href="/create">Create List</a>
+
+<table th:object="${items}" border="2">
+    <tr th:each="item :${items}">
+        <td>
+            <a th:href="@{/mailinglist/{listId}(listId = ${item.id})}">
+                <p th:text="${item.id}">Id</p>
+            </a>
+        </td>
+        <td>
+            <p th:text="${item.name}">name</p>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
